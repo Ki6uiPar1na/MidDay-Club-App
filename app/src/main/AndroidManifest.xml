@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Internet permission for Firebase Authentication -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,15 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgrammingClub"
         tools:targetApi="31">
+
+        <!-- Main Activity -->
         <activity
-            android:name=".sign_up_page"
+            android:name=".MainActivity"
             android:exported="false" />
+
+        <!-- Sign Up Activity -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+
+        <!-- Login Activity (Launcher) -->
         <activity
             android:name=".logInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

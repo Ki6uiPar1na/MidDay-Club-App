@@ -12,6 +12,7 @@
 
     <!--    club logo -->
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="124dp"
         android:layout_height="118dp"
         android:maxWidth="20dp"
@@ -20,6 +21,7 @@
         android:src="@drawable/logo" />
     <!--    club name -->
     <TextView
+        android:id="@+id/clubName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MidDay Programming Club"
@@ -101,7 +103,7 @@
                 android:textColorHint="#808080" />
 
             <EditText
-                android:id="@+id/pwd"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"

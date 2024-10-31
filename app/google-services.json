@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "782504864042",
+    "project_id": "programmingclub-35955",
+    "storage_bucket": "programmingclub-35955.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782504864042:android:d63262aa8c66089e8b9653",
+        "android_client_info": {
+          "package_name": "com.example.programmingclub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4ZGZAIVapLhYk9ofeiAHAdIxBpLLjAbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
