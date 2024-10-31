@@ -8,12 +8,13 @@
     android:orientation="vertical"
     tools:context=".allStudents">
 
-    <TextView
-        android:layout_width="182dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
-        android:text="Khairul"
-        android:textSize="30dp" />
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="FFFFC107"
+        android:dividerHeight="2dp"
+        android:listSelector="#f0f0"
+        />
 
 </LinearLayout>

@@ -16,7 +16,7 @@ public class profile extends AppCompatActivity implements View.OnClickListener {
     // Initialize Firebase Auth
     private FirebaseAuth auth;
 
-    //find the show all student button
+    // Find the show all student button
     private Button allStudent;
 
     @Override
@@ -27,9 +27,10 @@ public class profile extends AppCompatActivity implements View.OnClickListener {
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
-        
-        //get the all student button
+
+        // Get the all student button and set an onClick listener
         allStudent = findViewById(R.id.show_all_student);
+        allStudent.setOnClickListener(this);
     }
 
     // Inflate the menu layout
@@ -42,25 +43,24 @@ public class profile extends AppCompatActivity implements View.OnClickListener {
     // Handle menu item clicks
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-            if(item.getItemId() == R.id.log_out){
-                auth.signOut();
-                finish();
-                Intent intent = new Intent(getApplicationContext(), logInActivity.class);
-                startActivity(intent);
-                return true;
-            } else if(item.getItemId() == R.id.settings) {
-                    Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show();
-                    // Start a new activity if needed
-                    return true;
-            } else if(item.getItemId() == R.id.about) {
-                Toast.makeText(this, "About selected", Toast.LENGTH_SHORT).show();
-                // Start a new activity if needed
-                return true;
-            } else {
-                return super.onOptionsItemSelected(item);
-            }
-
+        if (item.getItemId() == R.id.log_out) {
+            auth.signOut();
+            finish();
+            Intent intent = new Intent(getApplicationContext(), logInActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.settings) {
+            Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show();
+            // Start a new activity if needed
+            return true;
+        } else if (item.getItemId() == R.id.about) {
+            Toast.makeText(this, "About selected", Toast.LENGTH_SHORT).show();
+            // Start a new activity if needed
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
+    }
 
     @Override
     public void onClick(View view) {
