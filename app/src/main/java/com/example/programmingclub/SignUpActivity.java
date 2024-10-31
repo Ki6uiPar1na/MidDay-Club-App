@@ -17,12 +17,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText name, email, session, registrationNumber, password;
     private Button signUpButton;
     private TextView logInText;
     private FirebaseAuth auth;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
+
+        //initialize database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
 
         // Access all the IDs in the signup page
         name = findViewById(R.id.name);
@@ -75,6 +81,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this, "Password must be at least 4 characters", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        //if registration number already present then show a message
+
+
+        //send data to database
+        storeUserData userData = new storeUserData(nameInput, emailInput, passwordInput, regNumberInput, sessionInput);
+        databaseReference.child(regNumberInput).setValue(userData);
 
         // Create a new user with Firebase Authentication
         auth.createUserWithEmailAndPassword(emailInput, passwordInput)
