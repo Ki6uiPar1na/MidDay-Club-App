@@ -1,10 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#96F6E5"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/comitee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/comitee"
+            android:padding="2dp" />
+
+        <ImageButton
+            android:id="@+id/club_members"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/club_members"
+            android:padding="2dp" />
+
+        <ImageButton
+            android:id="@+id/alumni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/alumni"
+            android:padding="2dp" />
+
+        <ImageButton
+            android:id="@+id/contest_era"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/contest_era"
+            android:padding="2dp" />
+
+        <ImageButton
+            android:id="@+id/streak_leaderboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/streak_leaderboard"
+            android:padding="2dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation View anchored to the bottom -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_gravity="bottom"
+        android:background="#00AB8D"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>

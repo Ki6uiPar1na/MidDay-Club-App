@@ -14,18 +14,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="31">
+        <!--        Alumni activity-->
         <activity
-            android:name=".allStudents"
+            android:name=".alumni"
+            android:exported="false" />
+        <!--        contests activity-->
+        <activity
+            android:name=".contests"
+            android:exported="false" />
+        <!--        Streak Leaderboard activity-->
+        <activity
+            android:name=".streakLeaderboard"
+            android:exported="false" />
+        <!--        comitee activity-->
+        <activity
+            android:name=".comitee"
+            android:exported="false" />
+        <!--        Members Activity-->
+        <activity
+            android:name=".members"
             android:exported="true" />
+        <!--  Profile Activity      -->
         <activity
             android:name=".profile"
-            android:exported="false" /> <!-- Main Activity -->
+            android:exported="false" />
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" /> <!-- Sign Up Activity -->
+            android:exported="true" />
+        <!-- Sign Up Activity -->
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" /> <!-- Login Activity (Launcher) -->
+            android:exported="false" />
+        <!-- Login Activity (Launcher) -->
         <activity
             android:name=".logInActivity"
             android:exported="true">

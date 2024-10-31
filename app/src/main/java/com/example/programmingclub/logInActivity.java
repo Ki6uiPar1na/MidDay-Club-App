@@ -71,7 +71,7 @@ public class logInActivity extends AppCompatActivity implements View.OnClickList
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         // Navigate to the main activity after login
-                        Intent intent = new Intent(logInActivity.this, profile.class);
+                        Intent intent = new Intent(logInActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

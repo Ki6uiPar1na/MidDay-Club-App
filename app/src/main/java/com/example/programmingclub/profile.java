@@ -65,7 +65,7 @@ public class profile extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.show_all_student) {
-            Intent intent = new Intent(getApplicationContext(), allStudents.class);
+            Intent intent = new Intent(getApplicationContext(), members.class);
             startActivity(intent);
         }
     }
