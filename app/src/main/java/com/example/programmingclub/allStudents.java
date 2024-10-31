@@ -23,7 +23,6 @@ public class allStudents extends AppCompatActivity {
         setContentView(R.layout.activity_all_students);
         setTitle("All Students");
 
-        listView = findViewById(R.id.listView);
 
     }
 }

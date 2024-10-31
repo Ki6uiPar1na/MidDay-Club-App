@@ -8,13 +8,4 @@
     android:orientation="vertical"
     tools:context=".allStudents">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="FFFFC107"
-        android:dividerHeight="2dp"
-        android:listSelector="#f0f0"
-        />
-
 </LinearLayout>
