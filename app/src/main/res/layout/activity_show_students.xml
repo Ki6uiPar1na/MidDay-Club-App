@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".members">
+    tools:context=".allStudents">
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:layout_gravity="bottom|center"
-        android:background="#00AB8D"
-        app:menu="@menu/bottom_nav_menu" />
+        android:layout_height="match_parent"
+        android:divider="FFFFC107"
+        android:dividerHeight="2dp"
+        android:listSelector="#f0f0"
+        />
 
 </LinearLayout>

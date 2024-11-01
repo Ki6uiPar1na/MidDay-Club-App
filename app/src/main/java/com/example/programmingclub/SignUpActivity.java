@@ -83,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         //if registration number already present then show a message
-
+        
 
         //send data to database
         storeUserData userData = new storeUserData(nameInput, emailInput, passwordInput, regNumberInput, sessionInput);
