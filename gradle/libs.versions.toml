@@ -10,8 +10,20 @@ constraintlayout = "2.1.4"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.1.0"
 firebaseDatabase = "21.0.0"
+okhttp = "4.9.3"
+gson = "2.11.0"
+volley = "1.2.1"
+glide = "4.16.0"
+firebaseInappmessaging = "21.0.1"
+picasso = "2.8"
+swiperefreshlayout = "1.1.0"
+firebaseStorage = "21.0.1"
+firebaseFirestore = "25.1.1"
+
+
 
 [libraries]
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -21,6 +33,14 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
+glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
+firebase-inappmessaging = { group = "com.google.firebase", name = "firebase-inappmessaging", version.ref = "firebaseInappmessaging" }
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New User"
+        android:textSize="24sp"
+        android:textColor="#333"
+        android:layout_marginBottom="24dp"
+        android:textStyle="bold" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Name Input -->
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Registration Number Input -->
+    <EditText
+        android:id="@+id/registrationNumberInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Registration Number"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Session Input -->
+    <EditText
+        android:id="@+id/sessionInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Session"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Add Button -->
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add User"
+        android:textColor="#FFFFFF"
+        android:background="#4CAF50"
+        android:padding="12dp" />
+
+</LinearLayout>

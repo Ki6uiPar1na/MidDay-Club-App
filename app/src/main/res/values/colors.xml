@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+        <!-- Background Colors -->
+        <color name="primary_background">#96F6E5</color>
+        <color name="nav_background">#00AB8D</color>
+        <color name="nav_item_selected">#FFFFFF</color>
+        <color name="nav_item_unselected">#B0F0E5</color>
+        <color name="text_color_white">#FFF</color>
+
+        <!-- Accent Colors -->
+        <color name="accent_color">#0078D4</color>
+        <color name="accent_light">#40BFFF</color>
+        <!-- Primary Colors -->
+        <color name="primaryColor">#14213D</color> <!-- Dark Blue -->
+        <color name="primaryTextColor">#FCA311</color> <!-- Yellow (for text) -->
+        <color name="secondaryTextColor">#FFFFFF</color> <!-- White (for text) -->
+        <color name="hintTextColor">#FFFFFF</color> <!-- White (for hint text) -->
+        <color name="editTextBackgroundColor">#1F2A44</color> <!-- Darker Blue for EditText background -->
+
+        <!-- Button Colors -->
+        <color name="buttonBackgroundColor">#FCA311</color> <!-- Yellow background for buttons -->
+        <color name="buttonTextColor">#FFFFFF</color> <!-- White text for buttons -->
+
+        <!-- ProgressBar -->
+        <color name="progressBarColor">#FCA311</color> <!-- Yellow color for the progress bar -->
+
 </resources>

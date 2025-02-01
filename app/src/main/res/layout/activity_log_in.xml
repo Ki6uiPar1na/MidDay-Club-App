@@ -2,121 +2,152 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="#96F6E5"
-    tools:context=".logInActivity">
+    android:background="@color/primary_background"
+    tools:context=".SignUpActivity">
 
-<!--    club logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="124dp"
-        android:layout_height="118dp"
-        android:maxWidth="20dp"
-        android:maxHeight="20dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo" />
-<!--    club name -->
-    <TextView
-        android:id="@+id/clubName"
+    <!-- ScrollView for the content -->
+    <ScrollView
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MidDay Programming Club"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="#066A59"
-        android:layout_marginBottom="10dp"
-        android:textSize="25dp"/>
-<!--    start a card view -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
-        android:padding="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#96F6E5"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#CFFAEE"
-            android:orientation="vertical">
-<!--    log in text     -->
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <!-- Club logo -->
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="124dp"
+                android:layout_height="118dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo" />
+
+            <!-- Club name -->
             <TextView
-                android:id="@+id/logInText"
+                android:id="@+id/clubName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="MidDay Programming Club"
+                android:textStyle="bold"
                 android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 android:textColor="#066A59"
-                android:text="Login" />
+                android:layout_marginBottom="10dp"
+                android:textSize="25sp" />
 
-<!--    take input username     -->
-            <EditText
-                android:id="@+id/username"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
-                android:hint="Email"
-                android:backgroundTint="#066A59"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#808080" />
-<!--           take input password      -->
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:backgroundTint="#066A59"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#808080" />
-<!--    log in button      -->
-            <Button
-                android:id="@+id/loginButton"
+            <!-- CardView for login form -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Log In"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#066A59"
-                android:padding="12dp" />
-<!--    if dont have account, then sign up actions-->
-            <TextView
-                android:id="@+id/signUpText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:text="Don't have an account? Sign Up"
-                android:textColor="#066A59"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true" />
-<!--    forgot passoword action     -->
-            <TextView
-                android:id="@+id/forgotPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="Forgot Password?"
-                android:textColor="#066A59"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true" />
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:padding="16dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#CFFAEE"
+                    android:padding="16dp">
+
+                    <!-- Login Text -->
+                    <TextView
+                        android:id="@+id/logInText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#066A59" />
+
+                    <!-- Username Input -->
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        android:hint="Registration Number"
+                        android:backgroundTint="#066A59"
+                        android:padding="12dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#808080" />
+
+                    <!-- Password Input -->
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:backgroundTint="#066A59"
+                        android:padding="12dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#808080" />
+
+                    <!-- Log In Button -->
+                    <Button
+                        android:id="@+id/loginButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Log In"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#066A59"
+                        android:padding="12dp" />
+
+                    <!-- Sign Up Link -->
+                    <TextView
+                        android:id="@+id/signUpText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:text="Don't have an account? Sign Up"
+                        android:textColor="#066A59"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Forgot Password Link -->
+                    <TextView
+                        android:id="@+id/forgotPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:text="Forgot Password?"
+                        android:textColor="#066A59"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
+    </ScrollView>
 
-    </androidx.cardview.widget.CardView>
-
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nav_background"
+        app:itemIconTint="@color/bottom_nav_color_selector"
+        app:itemTextColor="@color/bottom_nav_color_selector"
+        app:menu="@menu/sign_up_bottom_nav" />
 </LinearLayout>

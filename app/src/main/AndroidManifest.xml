@@ -2,7 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Internet permission for Firebase Authentication -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,41 +25,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="31">
-        <!--        Alumni activity-->
         <activity
-            android:name=".alumni"
+            android:name=".AdminWelcomeActivity"
             android:exported="false" />
-        <!--        contests activity-->
         <activity
-            android:name=".contests"
+            android:name=".UpdateMembersActivity"
             android:exported="false" />
-        <!--        Streak Leaderboard activity-->
         <activity
-            android:name=".streakLeaderboard"
+            android:name=".AddNewUserActivity"
             android:exported="false" />
-        <!--        comitee activity-->
         <activity
-            android:name=".comitee"
+            android:name=".UserAdapter"
             android:exported="false" />
-        <!--        Members Activity-->
         <activity
-            android:name=".members"
-            android:exported="true" />
-        <!--  Profile Activity      -->
-        <activity
-            android:name=".profile"
+            android:name=".ShowClubMembers"
             android:exported="false" />
-        <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <!-- Sign Up Activity -->
-        <activity
-            android:name=".SignUpActivity"
+            android:name=".adminLogin"
             android:exported="false" />
-        <!-- Login Activity (Launcher) -->
         <activity
-            android:name=".logInActivity"
+            android:name=".test_result_view"
+            android:exported="false" />
+        <activity
+            android:name=".test"
+            android:exported="false" />
+        <activity
+            android:name=".welcome_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,6 +58,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".codeforces_profile"
+            android:exported="false" />
+        <activity
+            android:name=".Contest_info"
+            android:exported="false" />
+        <activity
+            android:name=".CF_stats"
+            android:exported="false" />
+        <activity
+            android:name=".alumni"
+            android:exported="false" /> <!-- contests activity -->
+        <activity
+            android:name=".contests"
+            android:exported="false" /> <!-- Streak Leaderboard activity -->
+        <activity
+            android:name=".streakLeaderboard"
+            android:exported="false" /> <!-- comitee activity -->
+        <activity
+            android:name=".comitee"
+            android:exported="false" /> <!-- Profile Activity -->
+        <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" /> <!-- Sign Up Activity -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" /> <!-- Login Activity (Launcher) -->
+        <activity
+            android:name=".logInActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

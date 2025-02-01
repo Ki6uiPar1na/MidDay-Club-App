@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#1F2937" /> <!-- Dark gray for input fields -->
+    <stroke android:width="1dp" android:color="#FCA311" /> <!-- Accent color for border -->
+    <corners android:radius="8dp" />
+</shape>
