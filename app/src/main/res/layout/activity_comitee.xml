@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/primaryColor"
                 android:padding="16dp">
 
                 <androidx.cardview.widget.CardView
@@ -31,22 +32,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="8dp"
+                    app:cardElevation="16dp"
                     android:layout_marginBottom="16dp"
-                    android:backgroundTint="@color/nav_background">
+                    android:backgroundTint="@color/primaryColor">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
+
                         android:padding="16dp">
 
                         <ImageView
                             android:id="@+id/president_image"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/p"
+                            android:src="@drawable/nabeel_vai"
                             android:scaleType="centerCrop"
                             android:background="@drawable/rounded_image" />
 
@@ -84,8 +86,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="8dp"
-                    android:backgroundTint="@color/nav_background"
+                    app:cardElevation="16dp"
+                    android:backgroundTint="@color/primaryColor"
                     android:layout_marginBottom="16dp">
 
                     <LinearLayout
@@ -99,7 +101,7 @@
                             android:id="@+id/vice_president_image"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/p"
+                            android:src="@drawable/tamjid_vai"
                             android:scaleType="centerCrop"
                             android:background="@drawable/rounded_image" />
 
@@ -137,8 +139,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="8dp"
-                    android:backgroundTint="@color/nav_background">
+                    app:cardElevation="16dp"
+                    android:backgroundTint="@color/primaryColor">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -151,7 +153,7 @@
                             android:id="@+id/secretary_image"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/p"
+                            android:src="@drawable/era_apu"
                             android:scaleType="centerCrop"
                             android:background="@drawable/rounded_image" />
 
@@ -194,7 +196,8 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/nav_background"
+        android:background="@color/primaryColor"
+        app:cardElevation="30dp"
         app:itemIconTint="@color/bottom_nav_color_selector"
         app:itemTextColor="@color/bottom_nav_color_selector"
         app:menu="@menu/bottom_nav_menu"

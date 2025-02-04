@@ -94,26 +94,23 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void createFirebaseUser(String name, String email, String session, String regNumber,
                                     String password, String cfHandle, String ccHandle, String lcHandle) {
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        storeUserData userData = new storeUserData(name, email, session, regNumber,
-                                cfHandle, ccHandle, lcHandle);
-                        databaseReference.child(regNumber).setValue(userData)
-                                .addOnCompleteListener(dbTask -> {
-                                    if (dbTask.isSuccessful()) {
-                                        Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(this, logInActivity.class));
-                                        finish();
-                                    } else {
-                                        showErrorToast("Database Error: " + dbTask.getException().getMessage());
-                                    }
-                                });
+
+        // Create a user in Firebase Realtime Database (Instead of Firebase Authentication)
+        storeUserData userData = new storeUserData(name, email, session, regNumber, cfHandle, ccHandle, lcHandle, password);
+
+        databaseReference.child(regNumber).setValue(userData)
+                .addOnCompleteListener(dbTask -> {
+                    if (dbTask.isSuccessful()) {
+                        Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(this, logInActivity.class));
+                        finish();
                     } else {
-                        showErrorToast("Authentication Failed: " + task.getException().getMessage());
+                        showErrorToast("Database Error: " + dbTask.getException().getMessage());
                     }
                 });
     }
+
+
 
     private void showErrorToast(String message) {
         Log.e("SignUpActivity", message);

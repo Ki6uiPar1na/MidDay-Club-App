@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
+    android:padding="16dp">
+
+    <!-- Search Bar -->
+    <android.widget.SearchView
+        android:id="@+id/searchView"
+        android:background="@color/primaryTextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search by handle"
+        android:iconifiedByDefault="false"/>
+
+    <!-- RecyclerView to display Codeforces users -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

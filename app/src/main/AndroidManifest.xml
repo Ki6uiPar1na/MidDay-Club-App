@@ -26,6 +26,39 @@
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="31">
         <activity
+            android:name=".ContestSiteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgrammerDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CurrentProgrammerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgrammingOptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayNoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateNoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TeacherListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProblemOfTheDayActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminWelcomeActivity"
             android:exported="false" />
         <activity
@@ -65,7 +98,7 @@
             android:name=".Contest_info"
             android:exported="false" />
         <activity
-            android:name=".CF_stats"
+            android:name=".AllProgrammerActivity"
             android:exported="false" />
         <activity
             android:name=".alumni"

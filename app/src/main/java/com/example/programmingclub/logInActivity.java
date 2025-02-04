@@ -2,100 +2,108 @@ package com.example.programmingclub;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.text.TextUtils;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class logInActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText registrationNumber, password;
+public class logInActivity extends AppCompatActivity {
+
+    private EditText regNumberInput, passwordInput;
     private Button loginButton;
-    private TextView signUpText, forgotPassword;
+    private TextView signUpText;
     private DatabaseReference databaseReference;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        this.setTitle("Log In");
+        getSupportActionBar().hide();
 
-        // Initialize Firebase Database Reference
+        // Initialize Firebase Realtime Database
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
-        // Access all the IDs in the login page
-        registrationNumber = findViewById(R.id.username); // Change ID to match registration number
-        password = findViewById(R.id.password);
+        // Initialize UI Components
+        regNumberInput = findViewById(R.id.registrationNumber);
+        passwordInput = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
         signUpText = findViewById(R.id.signUpText);
-        forgotPassword = findViewById(R.id.forgotPassword);
+        bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        // Set onClick listeners
-        loginButton.setOnClickListener(this);
-        signUpText.setOnClickListener(this);
-        forgotPassword.setOnClickListener(this);
+        loginButton.setOnClickListener(v -> loginUser());
+
+        // Redirect to Sign-Up Page when clicking "Don't have an account? Sign Up"
+        signUpText.setOnClickListener(v -> {
+            startActivity(new Intent(logInActivity.this, SignUpActivity.class));
+            finish();
+        });
+
+        // Handle navigation clicks
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.nav_sign_up) {
+                    startActivity(new Intent(logInActivity.this, SignUpActivity.class));
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.signUpText) {
-            // Start the SignUpActivity
-            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-            startActivity(intent);
-        } else if (view.getId() == R.id.loginButton) {
-            // Perform login action
-            performLogin();
-        }
-    }
+    private void loginUser() {
+        String regNumber = regNumberInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
 
-    private void performLogin() {
-        String regNo = registrationNumber.getText().toString().trim();
-        String pass = password.getText().toString().trim();
-
-        if (regNo.isEmpty() || pass.isEmpty()) {
-            Snackbar.make(loginButton, "Please enter registration number and password", Snackbar.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(regNumber) || TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Query Firebase Realtime Database for registration number
-        databaseReference.orderByChild("registrationNumber").equalTo(regNo)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                                // Get user details
-                                String dbPassword = userSnapshot.child("password").getValue(String.class);
+        // Reference to the specific registration number
+        DatabaseReference userRef = databaseReference.child(regNumber);
 
-                                if (dbPassword != null && dbPassword.equals(pass)) {
-                                    // Login successful
-                                    Intent intent = new Intent(logInActivity.this, MainActivity.class);
-                                    intent.putExtra("userName", userSnapshot.child("name").getValue(String.class));
-                                    intent.putExtra("userEmail", userSnapshot.child("email").getValue(String.class));
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Snackbar.make(loginButton, "Invalid password", Snackbar.LENGTH_SHORT).show();
-                                }
-                            }
-                        } else {
-                            Snackbar.make(loginButton, "Registration number not found", Snackbar.LENGTH_SHORT).show();
-                        }
-                    }
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    // Retrieve the stored password
+                    String storedPassword = snapshot.child("password").getValue(String.class);
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Snackbar.make(loginButton, "Database error occurred", Snackbar.LENGTH_SHORT).show();
+                    if (storedPassword != null && storedPassword.equals(password)) {
+                        Toast.makeText(logInActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+
+                        // Navigate to ProfileActivity
+                        Intent intent = new Intent(logInActivity.this, MainActivity.class);
+                        intent.putExtra("regNumber", regNumber); // Pass user reg number
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(logInActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
                     }
-                });
+                } else {
+                    Toast.makeText(logInActivity.this, "Registration Number Not Found!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(logInActivity.this, "Database Error!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
